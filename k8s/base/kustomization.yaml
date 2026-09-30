@@ -6,7 +6,6 @@ namespace: azilehub
 resources:
   - namespace.yaml
   - configmap.yaml
-  - secret.yaml
   - postgres.yaml
   - content-service.yaml
   - contact-service.yaml
