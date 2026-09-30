@@ -5,37 +5,6 @@
 ![Azilehub Kubernetes Workflow](images/azilehub-k8s-gitops-workflow.png)
 
 
-<details>
-<summary><strong>▶ Project Objective</strong></summary>
-
-## Azilehub Academy — Project Objective
-
-The objective of the **Azilehub Academy Kubernetes project** is to build and operate a **scalable, automated, and production-oriented learning platform** where the website provides tutorials and user contact functionality through independent backend APIs.
-
-### Core Objective
-
-Build the Azilehub Academy website using a **microservices architecture** and deploy it on Kubernetes:
-
-```text
-                    Azilehub Academy
-                          Website
-                             |
-                             | HTTPS
-                             v
-                    Kubernetes Ingress
-                             |
-              +--------------+--------------+
-              |                             |
-              v                             v
-       Content Service               Contact Service
-       GET /api/tutorials            POST /api/contact
-              |                             |
-              |                             |
-              +-------------+---------------+
-                            |
-                            v
-                       PostgreSQL
-
 ---
 
 ## Project Overview
