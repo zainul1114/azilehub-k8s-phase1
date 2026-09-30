@@ -136,6 +136,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v4
+        with:
+          version: latest
+
       # ----------------------------------------
       # Generate CI-only Kubernetes Secret
       # ----------------------------------------
@@ -152,3 +157,10 @@ jobs:
             --dry-run=client \
             -o yaml > k8s/base/secret.yaml
 
+      - name: Validate Dev Kustomize
+        run: |
+          kubectl kustomize k8s/overlays/dev > /tmp/azilehub-dev.yaml
+
+      - name: Validate Prod Kustomize
+        run: |
+          kubectl kustomize k8s/overlays/prod > /tmp/azilehub-prod.yaml
