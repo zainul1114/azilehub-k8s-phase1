@@ -342,6 +342,7 @@ GitHub
 ```
 
 Argo CD configuration:
+![Azilehub AgroCD Workflow](azilehub-argocd.png)
 
 ```text
 Repository:
