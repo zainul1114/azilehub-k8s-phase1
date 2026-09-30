@@ -211,7 +211,7 @@ Frontend
 ```
 
 DNS traffic is explicitly permitted for workloads that require service discovery.
-![kubernetes components](validation.png)
+
 ---
 
 ### 8. Observability
@@ -231,6 +231,7 @@ Main components:
 - Metrics Server
 
 Grafana dashboards were created for the `azilehub` namespace, including:
+
 ![Azilehub Grafana Dashboard](grafana_dashboard.png)
 
 - Running Pods
@@ -429,7 +430,7 @@ Expected:
 ```text
 azilehub-dev   Synced   Healthy
 ```
-
+![kubernetes components](validation.png)
 ---
 
 ## Project Phases
