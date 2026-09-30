@@ -6,8 +6,6 @@
 
 
 ---
-## Project Objective
-
 ## Azilehub Academy — Project Objective
 
 The objective of the **Azilehub Academy Kubernetes project** is to build and operate a **scalable, automated, and production-oriented learning platform** where the website provides tutorials and user contact functionality through independent backend APIs.
