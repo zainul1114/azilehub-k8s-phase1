@@ -132,3 +132,23 @@ jobs:
 
           docker push \
             ${{ vars.DOCKERHUB_USERNAME }}/azilehub-contact:1.0.1
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ----------------------------------------
+      # Generate CI-only Kubernetes Secret
+      # ----------------------------------------
+
+      - name: Generate CI test secret
+        run: |
+          kubectl create secret generic azilehub-secret \
+            --namespace azilehub \
+            --from-literal=DB_PASSWORD=ci-dummy-password \
+            --from-literal=DB_USER=azilehub \
+            --from-literal=POSTGRES_PASSWORD=ci-dummy-password \
+            --from-literal=POSTGRES_USER=azilehub \
+            --from-literal=SECRET_KEY=ci-dummy-secret-key \
+            --dry-run=client \
+            -o yaml > k8s/base/secret.yaml
+
