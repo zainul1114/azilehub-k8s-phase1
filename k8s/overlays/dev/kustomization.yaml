@@ -30,3 +30,19 @@ patches:
       - op: replace
         path: /spec/replicas
         value: 1
+
+  - target:
+      kind: HorizontalPodAutoscaler
+      name: contact-service-hpa
+    patch: |-
+      - op: replace
+        path: /spec/minReplicas
+        value: 1
+
+  - target:
+      kind: HorizontalPodAutoscaler
+      name: content-service-hpa
+    patch: |-
+      - op: replace
+        path: /spec/minReplicas
+        value: 1
