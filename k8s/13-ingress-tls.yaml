@@ -1,0 +1,54 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: azilehub-ingress
+  namespace: azilehub
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "60"
+
+    # Redirect HTTP to HTTPS
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+
+spec:
+  ingressClassName: nginx
+
+  tls:
+    - hosts:
+        - azilehub.local
+      secretName: azilehub-tls
+
+  rules:
+    - host: azilehub.local
+
+      http:
+        paths:
+
+          # Tutorials API
+          - path: /api/tutorials
+            pathType: Prefix
+            backend:
+              service:
+                name: content-service
+                port:
+                  number: 8000
+
+          # Contact API
+          - path: /api/contact
+            pathType: Prefix
+            backend:
+              service:
+                name: contact-service
+                port:
+                  number: 8000
+
+          # Frontend
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend
+                port:
+                  number: 8080

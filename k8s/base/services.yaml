@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: content-service
+  namespace: azilehub
+  labels:
+    app: content-service
+spec:
+  type: ClusterIP
+  selector:
+    app: content-service
+  ports:
+    - name: http
+      port: 8000
+      targetPort: 8000
+      protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: contact-service
+  namespace: azilehub
+  labels:
+    app: contact-service
+spec:
+  type: ClusterIP
+  selector:
+    app: contact-service
+  ports:
+    - name: http
+      port: 8000
+      targetPort: 8000
+      protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: azilehub
+  labels:
+    app: frontend
+spec:
+  type: ClusterIP
+  selector:
+    app: frontend
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
+

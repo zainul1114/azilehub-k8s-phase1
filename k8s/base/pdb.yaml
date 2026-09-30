@@ -1,0 +1,46 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: frontend-pdb
+  namespace: azilehub
+
+spec:
+
+  minAvailable: 1
+
+  selector:
+
+    matchLabels:
+      app: frontend
+
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: content-service-pdb
+  namespace: azilehub
+
+spec:
+
+  minAvailable: 1
+
+  selector:
+
+    matchLabels:
+      app: content-service
+
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: contact-service-pdb
+  namespace: azilehub
+
+spec:
+
+  minAvailable: 1
+
+  selector:
+
+    matchLabels:
+      app: contact-service

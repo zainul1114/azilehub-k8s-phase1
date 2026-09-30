@@ -1,0 +1,116 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contact-service
+  namespace: azilehub
+  labels:
+    app: contact-service
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: contact-service
+
+  template:
+
+    metadata:
+      labels:
+        app: contact-service
+
+    spec:
+
+      containers:
+
+        - name: contact-service
+          image: zainul1114/azilehub-contact:1.0.1
+          imagePullPolicy: IfNotPresent
+
+          ports:
+
+            - containerPort: 8000
+              name: http
+
+          env:
+
+            - name: POSTGRES_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: azilehub-config
+                  key: POSTGRES_HOST
+
+            - name: POSTGRES_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: azilehub-config
+                  key: POSTGRES_PORT
+
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: azilehub-config
+                  key: POSTGRES_DB
+
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: azilehub-secret
+                  key: POSTGRES_USER
+
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: azilehub-secret
+                  key: POSTGRES_PASSWORD
+
+          readinessProbe:
+
+            httpGet:
+              path: /health
+              port: 8000
+
+            initialDelaySeconds: 10
+            periodSeconds: 10
+
+          livenessProbe:
+
+            httpGet:
+              path: /health
+              port: 8000
+
+            initialDelaySeconds: 20
+            periodSeconds: 20
+
+          resources:
+
+            requests:
+              cpu: 100m
+              memory: 128Mi
+
+            limits:
+              cpu: 500m
+              memory: 512Mi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: contact-service
+  namespace: azilehub
+
+  labels:
+    app: contact-service
+
+spec:
+
+  type: ClusterIP
+
+  selector:
+    app: contact-service
+
+  ports:
+
+    - name: http
+      port: 8000
+      targetPort: 8000
+      protocol: TCP

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: azilehub
+  labels:
+    app.kubernetes.io/name: azilehub
+    app.kubernetes.io/part-of: azilehub-platform

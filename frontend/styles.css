@@ -1,0 +1,891 @@
+/* =====================================================
+   EB GARAMOND - LOCAL FONT
+===================================================== */
+
+@font-face {
+
+    font-family: "EB Garamond";
+
+    src: url("/fonts/EBGaramond-Regular.woff2")
+         format("woff2");
+
+    font-weight: 400;
+
+    font-style: normal;
+
+    font-display: swap;
+}
+
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+:root {
+
+    --az-blue: #0d6efd;
+
+    --az-blue-dark: #0957c7;
+
+    --az-dark: #20252a;
+
+    --az-text: #172033;
+
+    --az-muted: #667085;
+
+    --az-light: #f5f8fc;
+
+    --az-border: #e5e7eb;
+
+}
+
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+    scroll-padding-top: 75px;
+
+}
+
+
+body {
+
+    margin: 0;
+
+    padding: 0;
+
+    font-family:
+        "EB Garamond",
+        Georgia,
+        serif;
+
+    color: var(--az-text);
+
+    background: #ffffff;
+
+    font-size: 18px;
+
+    line-height: 1.55;
+
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.az-navbar {
+
+    min-height: 68px;
+
+    padding: 8px 0;
+
+    background: var(--az-dark);
+
+}
+
+
+.navbar-brand {
+
+    font-family:
+        "EB Garamond",
+        Georgia,
+        serif;
+
+    font-size: 1.7rem;
+
+    font-weight: 700;
+
+    color: #ffffff !important;
+
+    letter-spacing: 0.2px;
+
+}
+
+
+.navbar-nav {
+
+    gap: 12px;
+
+}
+
+
+.nav-link {
+
+    font-family:
+        "EB Garamond",
+        Georgia,
+        serif;
+
+    font-size: 1.15rem;
+
+    font-weight: 500;
+
+    color: #d7dce3 !important;
+
+    padding: 8px 10px !important;
+
+    transition:
+        color 0.2s ease;
+
+}
+
+
+.nav-link:hover {
+
+    color: #ffffff !important;
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero-section {
+
+    min-height: 610px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 75px 0 85px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #f4f8ff 100%
+        );
+
+}
+
+
+.hero-content {
+
+    max-width: 650px;
+
+}
+
+
+.hero-badge {
+
+    display: inline-block;
+
+    padding: 7px 15px;
+
+    margin-bottom: 22px;
+
+    border-radius: 6px;
+
+    background: var(--az-blue);
+
+    color: #ffffff;
+
+    font-family:
+        "EB Garamond",
+        Georgia,
+        serif;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+
+}
+
+
+.hero-title {
+
+    margin: 0 0 25px;
+
+    font-family:
+        "EB Garamond",
+        Georgia,
+        serif;
+
+    font-size: clamp(
+        3.5rem,
+        5.2vw,
+        5.4rem
+    );
+
+    line-height: 0.94;
+
+    font-weight: 700;
+
+    letter-spacing: -1px;
+
+    color: var(--az-text);
+
+}
+
+
+.hero-description {
+
+    max-width: 650px;
+
+    margin: 0 0 32px;
+
+    color: var(--az-muted);
+
+    font-family:
+        "EB Garamond",
+        Georgia,
+        serif;
+
+    font-size: 1.35rem;
+
+    line-height: 1.5;
+
+}
+
+
+.hero-buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+}
+
+
+.hero-buttons .btn {
+
+    min-width: 160px;
+
+    padding: 12px 22px;
+
+    font-family:
+        "EB Garamond",
+        Georgia,
+        serif;
+
+    font-size: 1.2rem;
+
+    font-weight: 600;
+
+    border-radius: 7px;
+
+}
+
+
+/* =====================================================
+   HERO IMAGE
+===================================================== */
+
+.hero-image-wrapper {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+.hero-image {
+
+    display: block;
+
+    width: min(100%, 500px);
+
+    height: auto;
+
+    max-height: 455px;
+
+    object-fit: contain;
+
+    margin: 0 auto;
+
+    border-radius: 2px;
+
+    filter:
+        drop-shadow(
+            0 20px 30px rgba(0, 0, 0, 0.12)
+        );
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.hero-image:hover {
+
+    transform: scale(1.015);
+
+}
+
+
+/* =====================================================
+   GENERAL SECTIONS
+===================================================== */
+
+.section-padding {
+
+    padding: 95px 0;
+
+}
+
+
+.section-heading {
+
+    max-width: 800px;
+
+    margin: 0 auto 55px;
+
+}
+
+
+.section-label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--az-blue);
+
+    font-family:
+        "EB Garamond",
+        Georgia,
+        serif;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.section-heading h2 {
+
+    margin: 0 0 14px;
+
+    font-family:
+        "EB Garamond",
+        Georgia,
+        serif;
+
+    font-size: clamp(
+        2.6rem,
+        4vw,
+        3.6rem
+    );
+
+    font-weight: 700;
+
+    line-height: 1;
+
+}
+
+
+.section-heading p {
+
+    margin: 0;
+
+    color: var(--az-muted);
+
+    font-size: 1.25rem;
+
+}
+
+
+/* =====================================================
+   TUTORIALS
+===================================================== */
+
+.tutorials-section {
+
+    background: var(--az-light);
+
+}
+
+
+#tutorial-list {
+
+    min-height: 150px;
+
+}
+
+
+.loading-message {
+
+    padding: 50px 20px;
+
+    color: var(--az-muted);
+
+}
+
+
+.loading-message p {
+
+    margin-top: 15px;
+
+    margin-bottom: 0;
+
+    font-size: 1.15rem;
+
+}
+
+
+.tutorial-card {
+
+    height: 100%;
+
+    padding: 30px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--az-border);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 18px rgba(
+            0,
+            0,
+            0,
+            0.05
+        );
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.tutorial-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 32px rgba(
+            0,
+            0,
+            0,
+            0.09
+        );
+
+}
+
+
+.tutorial-card h3,
+
+.tutorial-card h4 {
+
+    margin: 0 0 12px;
+
+    font-family:
+        "EB Garamond",
+        Georgia,
+        serif;
+
+    font-size: 1.75rem;
+
+    font-weight: 700;
+
+    line-height: 1.1;
+
+}
+
+
+.tutorial-card p {
+
+    margin: 0;
+
+    color: var(--az-muted);
+
+    font-size: 1.1rem;
+
+}
+
+
+/* =====================================================
+   TECHNOLOGY
+===================================================== */
+
+.technology-card {
+
+    height: 100%;
+
+    padding: 35px 30px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--az-border);
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.technology-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 28px rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+
+}
+
+
+.technology-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    background: #edf4ff;
+
+    color: var(--az-blue);
+
+    font-size: 2rem;
+
+}
+
+
+.technology-card h3 {
+
+    margin-bottom: 12px;
+
+    font-family:
+        "EB Garamond",
+        Georgia,
+        serif;
+
+    font-size: 1.8rem;
+
+    font-weight: 700;
+
+}
+
+
+.technology-card p {
+
+    margin: 0;
+
+    color: var(--az-muted);
+
+    font-size: 1.1rem;
+
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact-section {
+
+    background: var(--az-light);
+
+}
+
+
+.contact-card {
+
+    padding: 42px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--az-border);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 30px rgba(
+            0,
+            0,
+            0,
+            0.06
+        );
+
+}
+
+
+.form-label {
+
+    margin-bottom: 7px;
+
+    font-family:
+        "EB Garamond",
+        Georgia,
+        serif;
+
+    font-size: 1.1rem;
+
+    font-weight: 600;
+
+}
+
+
+.form-control {
+
+    min-height: 50px;
+
+    padding: 11px 14px;
+
+    font-family:
+        "EB Garamond",
+        Georgia,
+        serif;
+
+    font-size: 1.1rem;
+
+    border-color: #d8dde5;
+
+    border-radius: 7px;
+
+}
+
+
+.form-control:focus {
+
+    border-color: var(--az-blue);
+
+    box-shadow:
+        0 0 0 0.2rem rgba(
+            13,
+            110,
+            253,
+            0.15
+        );
+
+}
+
+
+textarea.form-control {
+
+    min-height: 140px;
+
+}
+
+
+.contact-card .btn {
+
+    padding: 12px 28px;
+
+    font-family:
+        "EB Garamond",
+        Georgia,
+        serif;
+
+    font-size: 1.2rem;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   CONTACT RESULT
+===================================================== */
+
+.contact-result {
+
+    font-size: 1.1rem;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.az-footer {
+
+    padding: 30px 0;
+
+    background: var(--az-dark);
+
+    color: #ffffff;
+
+}
+
+
+.az-footer p {
+
+    margin: 0;
+
+    font-size: 1rem;
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 991.98px) {
+
+
+    .hero-section {
+
+        min-height: auto;
+
+        padding: 70px 0 80px;
+
+    }
+
+
+    .hero-title {
+
+        font-size: 4.2rem;
+
+    }
+
+
+    .hero-image {
+
+        width: min(
+            100%,
+            440px
+        );
+
+        max-height: 420px;
+
+        margin-top: 20px;
+
+    }
+
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 575.98px) {
+
+
+    body {
+
+        font-size: 17px;
+
+    }
+
+
+    .az-navbar {
+
+        min-height: 64px;
+
+    }
+
+
+    .navbar-brand {
+
+        font-size: 1.45rem;
+
+    }
+
+
+    .hero-section {
+
+        padding: 55px 0 65px;
+
+    }
+
+
+    .hero-title {
+
+        font-size: 3.2rem;
+
+        line-height: 0.98;
+
+    }
+
+
+    .hero-description {
+
+        font-size: 1.2rem;
+
+    }
+
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
+    .hero-buttons .btn {
+
+        width: 100%;
+
+    }
+
+
+    .hero-image {
+
+        width: 100%;
+
+        max-height: 330px;
+
+    }
+
+
+    .section-padding {
+
+        padding: 70px 0;
+
+    }
+
+
+    .section-heading h2 {
+
+        font-size: 2.7rem;
+
+    }
+
+
+    .contact-card {
+
+        padding: 25px;
+
+    }
+
+}

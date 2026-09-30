@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: storageclass-check
+  namespace: azilehub
+
+data:
+
+  README: |
+    PostgreSQL requires a working Kubernetes StorageClass.
+
+    Check available StorageClasses with:
+
+      kubectl get storageclass
+
+    Check the PostgreSQL PVC with:
+
+      kubectl get pvc -n azilehub
+
+    The postgres PVC should eventually become:
+
+      STATUS: Bound

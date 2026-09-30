@@ -1,0 +1,224 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: content-service-policy
+  namespace: azilehub
+spec:
+  podSelector:
+    matchLabels:
+      app: content-service
+
+  policyTypes:
+    - Ingress
+    - Egress
+
+  ingress:
+    # Frontend pods can access content-service
+    - from:
+        - podSelector:
+            matchLabels:
+              app: frontend
+      ports:
+        - protocol: TCP
+          port: 8000
+
+    # NGINX Ingress Controller can access content-service
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: ingress-nginx
+      ports:
+        - protocol: TCP
+          port: 8000
+
+  egress:
+    # DNS - node-local DNS
+    - to:
+        - ipBlock:
+            cidr: 169.254.25.10/32
+      ports:
+        - protocol: UDP
+          port: 53
+        - protocol: TCP
+          port: 53
+
+    # DNS - kube-system
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: kube-system
+      ports:
+        - protocol: UDP
+          port: 53
+        - protocol: TCP
+          port: 53
+
+    # PostgreSQL
+    - to:
+        - podSelector:
+            matchLabels:
+              app: postgres
+      ports:
+        - protocol: TCP
+          port: 5432
+
+
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: contact-service-policy
+  namespace: azilehub
+spec:
+  podSelector:
+    matchLabels:
+      app: contact-service
+
+  policyTypes:
+    - Ingress
+    - Egress
+
+  ingress:
+    # Frontend pods can access contact-service
+    - from:
+        - podSelector:
+            matchLabels:
+              app: frontend
+      ports:
+        - protocol: TCP
+          port: 8000
+
+    # NGINX Ingress Controller can access contact-service
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: ingress-nginx
+      ports:
+        - protocol: TCP
+          port: 8000
+
+  egress:
+    # DNS - node-local DNS
+    - to:
+        - ipBlock:
+            cidr: 169.254.25.10/32
+      ports:
+        - protocol: UDP
+          port: 53
+        - protocol: TCP
+          port: 53
+
+    # DNS - kube-system
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: kube-system
+      ports:
+        - protocol: UDP
+          port: 53
+        - protocol: TCP
+          port: 53
+
+    # PostgreSQL
+    - to:
+        - podSelector:
+            matchLabels:
+              app: postgres
+      ports:
+        - protocol: TCP
+          port: 5432
+
+
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: frontend-policy
+  namespace: azilehub
+spec:
+  podSelector:
+    matchLabels:
+      app: frontend
+
+  policyTypes:
+    - Ingress
+    - Egress
+
+  ingress:
+    # NGINX Ingress Controller can access frontend
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: ingress-nginx
+      ports:
+        - protocol: TCP
+          port: 8080
+
+  egress:
+    # DNS - node-local DNS
+    - to:
+        - ipBlock:
+            cidr: 169.254.25.10/32
+      ports:
+        - protocol: UDP
+          port: 53
+        - protocol: TCP
+          port: 53
+
+    # DNS - kube-system
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: kube-system
+      ports:
+        - protocol: UDP
+          port: 53
+        - protocol: TCP
+          port: 53
+
+    # Content service
+    - to:
+        - podSelector:
+            matchLabels:
+              app: content-service
+      ports:
+        - protocol: TCP
+          port: 8000
+
+    # Contact service
+    - to:
+        - podSelector:
+            matchLabels:
+              app: contact-service
+      ports:
+        - protocol: TCP
+          port: 8000
+
+
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: postgres-policy
+  namespace: azilehub
+spec:
+  podSelector:
+    matchLabels:
+      app: postgres
+
+  policyTypes:
+    - Ingress
+
+  ingress:
+    # Only application services can access PostgreSQL
+    - from:
+        - podSelector:
+            matchLabels:
+              app: content-service
+        - podSelector:
+            matchLabels:
+              app: contact-service
+      ports:
+        - protocol: TCP
+          port: 5432

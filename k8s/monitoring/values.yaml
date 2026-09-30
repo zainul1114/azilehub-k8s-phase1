@@ -1,0 +1,100 @@
+# ==========================================
+# Azilehub Academy - Lightweight Monitoring
+# kube-prometheus-stack
+# ==========================================
+
+prometheus:
+  enabled: true
+
+  prometheusSpec:
+    retention: 7d
+
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: nfs-client
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 10Gi
+
+    resources:
+      requests:
+        cpu: 100m
+        memory: 256Mi
+      limits:
+        cpu: 500m
+        memory: 512Mi
+
+    scrapeInterval: 30s
+    evaluationInterval: 30s
+
+grafana:
+  enabled: true
+
+  adminUser: admin
+
+  persistence:
+    enabled: true
+    storageClassName: nfs-client
+    accessModes:
+      - ReadWriteOnce
+    size: 5Gi
+
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
+    limits:
+      cpu: 300m
+      memory: 768Mi
+
+alertmanager:
+  enabled: true
+
+  alertmanagerSpec:
+    resources:
+      requests:
+        cpu: 50m
+        memory: 64Mi
+      limits:
+        cpu: 200m
+        memory: 128Mi
+
+nodeExporter:
+  enabled: true
+
+kubeStateMetrics:
+  enabled: true
+
+prometheusOperator:
+  enabled: true
+  resources:
+    requests:
+      cpu: 50m
+      memory: 128Mi
+    limits:
+      cpu: 200m
+      memory: 256Mi
+
+kubeApiServer:
+  enabled: true
+
+kubelet:
+  enabled: true
+
+kubeControllerManager:
+  enabled: true
+
+kubeScheduler:
+  enabled: true
+
+kubeProxy:
+  enabled: true
+
+coreDns:
+  enabled: true
+
+defaultRules:
+  create: true

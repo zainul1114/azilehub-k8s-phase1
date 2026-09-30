@@ -1,0 +1,37 @@
+# ==========================================
+# Azilehub local secrets / TLS
+# ==========================================
+
+# TLS private key and local certificate
+*.key
+*.crt
+
+# Kubernetes Secret manifests containing credentials
+k8s/02-secret.yaml
+k8s/phase2/azilehub-secret.yaml
+k8s/base/secret.yaml
+
+# Environment / credential files
+.env
+.env.*
+*.env
+
+# ==========================================
+# Generated / temporary files
+# ==========================================
+
+*.log
+*.tmp
+/tmp/
+.DS_Store
+
+# Python cache
+__pycache__/
+*.pyc
+
+# ==========================================
+# IDE / editor
+# ==========================================
+
+.vscode/
+.idea/
