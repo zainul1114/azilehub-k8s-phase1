@@ -323,6 +323,8 @@ Trivy scanning is currently configured as non-blocking so scan findings do not p
 
 ## GitOps with Argo CD
 
+![Azilehub ArgoCD Workflow](azilehub-argocd.png)
+
 Argo CD was installed and configured to manage the development environment.
 
 Application:
@@ -342,7 +344,6 @@ GitHub
 ```
 
 Argo CD configuration:
-![Azilehub ArgoCD Workflow](azilehub-argocd.png)
 
 ```text
 Repository:
