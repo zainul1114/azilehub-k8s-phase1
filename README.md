@@ -6,6 +6,176 @@
 
 
 ---
+## Project Objective
+
+## Azilehub Academy — Project Objective
+
+The objective of the **Azilehub Academy Kubernetes project** is to build and operate a **scalable, automated, and production-oriented learning platform** where the website provides tutorials and user contact functionality through independent backend APIs.
+
+### Core Objective
+
+Build the Azilehub Academy website using a **microservices architecture** and deploy it on Kubernetes:
+
+```text
+                    Azilehub Academy
+                          Website
+                             |
+                             | HTTPS
+                             v
+                    Kubernetes Ingress
+                             |
+              +--------------+--------------+
+              |                             |
+              v                             v
+       Content Service               Contact Service
+       GET /api/tutorials            POST /api/contact
+              |                             |
+              |                             |
+              +-------------+---------------+
+                            |
+                            v
+                       PostgreSQL
+```
+
+### Main Components
+
+**1. Frontend**
+
+Provide the Azilehub Academy website containing:
+
+* Home
+* About
+* Tutorials
+* Technology
+* Contact
+
+The frontend communicates with backend services through REST APIs.
+
+**2. Content Service**
+
+Provide tutorial content through an API:
+
+```text
+GET /api/tutorials
+```
+
+Example tutorial areas:
+
+```text
+Linux & Git
+Docker & Portainer
+Kubernetes
+DevOps
+MLOps
+AI Infrastructure
+OpenShift
+Monitoring
+```
+
+**3. Contact Service**
+
+Handle contact form submissions through:
+
+```text
+POST /api/contact
+```
+
+The service validates the request and stores contact information in PostgreSQL.
+
+**4. PostgreSQL**
+
+Provide persistent storage for application data, particularly contact submissions.
+
+---
+
+## Kubernetes Objective
+
+Use Kubernetes to provide:
+
+```text
+Containerization
+      ↓
+Deployments
+      ↓
+Services
+      ↓
+Ingress + TLS
+      ↓
+ConfigMap + Secrets
+      ↓
+Security
+      ↓
+Autoscaling
+      ↓
+High Availability
+      ↓
+Monitoring
+```
+
+The application is deployed in the:
+
+```text
+azilehub
+```
+
+namespace.
+
+---
+
+## Automation Objective
+
+A major goal is to automate the complete application lifecycle:
+
+```text
+Developer
+    |
+    | Git Push
+    v
+GitHub
+    |
+    v
+GitHub Actions
+    |
+    +---- Kustomize Validation
+    |
+    +---- Docker Build
+    |
+    +---- Trivy Security Scan
+    |
+    +---- Push Images
+    |
+    v
+Docker Hub
+    |
+    v
+Argo CD
+    |
+    +---- Kustomize
+    |
+    +---- Sync
+    |
+    +---- Self-Heal
+    |
+    v
+Kubernetes
+    |
+    +---- Frontend
+    +---- Content API
+    +---- Contact API
+    +---- PostgreSQL
+    |
+    v
+Azilehub Academy
+```
+
+### Overall Goal
+
+> **Build Azilehub Academy as a Kubernetes-based microservices platform where the frontend, tutorial content API, contact API, and database are deployed, secured, monitored, scaled, and automatically delivered using modern DevOps and GitOps practices.**
+
+This project therefore demonstrates the complete journey from **application development → containerization → Kubernetes → CI/CD → observability → GitOps automation**.
+
+
+---
 
 ## Project Overview
 
