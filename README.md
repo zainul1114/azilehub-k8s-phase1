@@ -3,7 +3,7 @@
 > End-to-end Kubernetes, CI/CD, observability and GitOps platform for the Azilehub Academy website.
 
 ![Azilehub Kubernetes Workflow](azilehub-k8s-gitops-workflow.png)
-![Azilehub AgroCD Workflow](azilehub-argocd.png)
+
 ---
 
 ## Project Overview
@@ -342,7 +342,7 @@ GitHub
 ```
 
 Argo CD configuration:
-![Azilehub AgroCD Workflow](azilehub-argocd.png)
+![Azilehub ArgoCD Workflow](azilehub-argocd.png)
 
 ```text
 Repository:
