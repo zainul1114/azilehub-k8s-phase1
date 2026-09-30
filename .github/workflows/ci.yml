@@ -32,13 +32,30 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      # ----------------------------------------
+      # Frontend
+      # ----------------------------------------
+
       - name: Build frontend image
         uses: docker/build-push-action@v6
         with:
           context: ./frontend
           file: ./frontend/Dockerfile
           push: false
+          load: true
           tags: azilehub-frontend:ci
+
+      - name: Scan frontend image with Trivy
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: azilehub-frontend:ci
+          format: table
+          severity: HIGH,CRITICAL
+          exit-code: '0'
+
+      # ----------------------------------------
+      # Content Service
+      # ----------------------------------------
 
       - name: Build content-service image
         uses: docker/build-push-action@v6
@@ -46,7 +63,20 @@ jobs:
           context: ./services/content-service
           file: ./services/content-service/Dockerfile
           push: false
+          load: true
           tags: azilehub-content:ci
+
+      - name: Scan content-service image with Trivy
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: azilehub-content:ci
+          format: table
+          severity: HIGH,CRITICAL
+          exit-code: '0'
+
+      # ----------------------------------------
+      # Contact Service
+      # ----------------------------------------
 
       - name: Build contact-service image
         uses: docker/build-push-action@v6
@@ -54,4 +84,13 @@ jobs:
           context: ./services/contact-service
           file: ./services/contact-service/Dockerfile
           push: false
+          load: true
           tags: azilehub-contact:ci
+
+      - name: Scan contact-service image with Trivy
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: azilehub-contact:ci
+          format: table
+          severity: HIGH,CRITICAL
+          exit-code: '0'
