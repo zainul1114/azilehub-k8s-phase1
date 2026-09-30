@@ -2,7 +2,7 @@
 
 > End-to-end Kubernetes, CI/CD, observability and GitOps platform for the Azilehub Academy website.
 
-![Azilehub Kubernetes Workflow](azilehub-k8s-gitops-workflow.png)
+![Azilehub Kubernetes Workflow](images/azilehub-k8s-gitops-workflow.png)
 
 ---
 
@@ -327,7 +327,7 @@ Trivy scanning is currently configured as non-blocking so scan findings do not p
 
 ## GitOps with Argo CD
 
-![Azilehub ArgoCD Workflow](azilehub-argocd.png)
+![Azilehub ArgoCD Workflow](images/azilehub-argocd.png)
 
 Argo CD was installed and configured to manage the development environment.
 
