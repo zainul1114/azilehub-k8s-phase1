@@ -211,10 +211,12 @@ Frontend
 ```
 
 DNS traffic is explicitly permitted for workloads that require service discovery.
-
+![kubernetes components](validation.png)
 ---
 
 ### 8. Observability
+
+![Azilehub kube prometheus stack](monitoring.png)
 
 Installed the `kube-prometheus-stack` monitoring platform.
 
@@ -229,6 +231,7 @@ Main components:
 - Metrics Server
 
 Grafana dashboards were created for the `azilehub` namespace, including:
+![Azilehub Grafana Dashboard](grafana_dashboard.png)
 
 - Running Pods
 - CPU requests
