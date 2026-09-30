@@ -5,3 +5,11 @@ namespace: azilehub
 
 resources:
   - ../../base
+
+images:
+  - name: zainul1114/azilehub-frontend
+    newTag: 1.0.7
+  - name: zainul1114/azilehub-content
+    newTag: 1.0.1
+  - name: zainul1114/azilehub-contact
+    newTag: 1.0.1
