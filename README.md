@@ -3,7 +3,7 @@
 > End-to-end Kubernetes, CI/CD, observability and GitOps platform for the Azilehub Academy website.
 
 ![Azilehub Kubernetes Workflow](azilehub-k8s-gitops-workflow.png)
-![Azilehub AgroCD Workflow](azilehub-agrocd.png)
+![Azilehub AgroCD Workflow](azilehub-argocd.png)
 ---
 
 ## Project Overview
