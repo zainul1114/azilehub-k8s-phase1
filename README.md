@@ -8,7 +8,7 @@
 ---
 <details>
 <summary><strong> 
-##  **Project Objective **
+<h2> Project Objective </h2>
 </strong></summary>
 
 ## Azilehub Academy — Project Objective
