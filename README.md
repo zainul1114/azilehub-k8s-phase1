@@ -6,8 +6,6 @@
 
 
 ---
-<details> <summary><strong> 
-  <h2> Project Objective </h2> </strong></summary>
 
 ## Azilehub Academy — Project Objective
 
@@ -175,7 +173,7 @@ Azilehub Academy
 
 This project therefore demonstrates the complete journey from **application development → containerization → Kubernetes → CI/CD → observability → GitOps automation**.
 
-</details>
+
 ---
 
 ## Project Overview
