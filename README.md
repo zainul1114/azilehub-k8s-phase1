@@ -6,7 +6,8 @@
 
 
 ---
-<details> <summary><strong> <h2> Project Objective </h2> </strong></summary>
+<details> <summary><strong> 
+  <h2> Project Objective </h2> </strong></summary>
 
 ## Azilehub Academy — Project Objective
 
